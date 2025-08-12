@@ -1,5 +1,4 @@
 #include<iostream>
-#include<windows.h>
 using namespace std;
 long long all=63;
 string d[63][3];
@@ -17,45 +16,13 @@ int programs() {
 }
 int settings() {
 	int t;
-	cout<<"输入序号"<<endl<<"0.返回 1.切换主题"<<endl;
+	cout<<"输入序号"<<endl<<"0.返回"<<endl;
 	while (cin>>t) {
-		if (t==1) {
-			cout<<"警告:切换主题会清除屏幕"<<endl;
-			cout<<"选择主题"<<endl<<"1.黑 2.白 3.绿 4.蓝 5.灰 6.自定义(实验性)";
-			int n;
-			cin>>n;
-			if (n==1) {
-				system("color 07");
-			} else if (n==2) {
-				system("color 70");
-			} else if (n==3) {
-				system("color 02");
-			} else if (n==4) {
-				system("color 17");
-			} else if (n==5) {
-				system("color 87");
-			} else if (n==6) {
-				cout<<"请输入1或2个十六进制数字"<<endl;
-				cout<<"颜色属性由两个十六进制数字指定 -- 第一个对应于背景，第二个对应于前景。每个数字可以为以下任何值:"<<endl;
-				cout<<"    0 = 黑色       8 = 灰色"<<endl;
-				cout<<"    1 = 蓝色       9 = 淡蓝色"<<endl;
-				cout<<"    2 = 绿色       A = 淡绿色"<<endl;
-				cout<<"    3 = 浅绿色     B = 淡浅绿色"<<endl;
-				cout<<"    4 = 红色       C = 淡红色"<<endl;
-				cout<<"    5 = 紫色       D = 淡紫色"<<endl;
-				cout<<"    6 = 黄色       E = 淡黄色"<<endl;
-				cout<<"    7 = 白色       F = 亮白色"<<endl;
-				string a;
-				cin>>a;
-				a="color "+a;
-				system(a.c_str());
-			}
-			system("cls");
-			cout<<"成功"<<endl;
-		} else if (t==0) {
+		
+		  if (t==0) {
 			return 0;
 		}
-		cout<<"输入序号"<<endl<<"0.返回 1.切换主题"<<endl;
+		cout<<"输入序号"<<endl<<"0.返回"<<endl;
 	}
 	return 0;
 }
@@ -180,8 +147,6 @@ int help() {
 	cout<<"\033[4mp\033[0mrograms\t\t\t\t打开程序列表。"<<endl;
 	cout<<"\033[4ms\033[0mettings\t\t\t\t打开设置。"<<endl;
 	cout<<"\033[4mh\033[0melp\t\t\t\t\t提供命令的帮助信息。"<<endl;
-	cout<<"cmd\t\t\t\t\t接入命令提示符。"<<endl;
-	cout<<"cls\t\t\t\t\t清除屏幕。"<<endl;
 	cout<<endl;
 	cout<<"\033[4md\033[0mir\t\t\t\t\t显示所有文件。"<<endl;
 	cout<<"\033[4mo\033[0mpen <文件名>\t\t\t\t打开文件。"<<endl;
@@ -206,7 +171,6 @@ int main() {
 	d[1][2]="*你入门了*";
 	d[2][1]="教程";
 	d[2][2]="*请自己输一下help来获得教程*";
-	Sleep(500);
 	cout<<"\r"<<"欢迎使用本系统"<<endl;
 	cout<<"输入 \033[4mh\033[0melp 或 h 来取得帮助(区分大小写)"<<endl;
 	string s,t,tt;
@@ -235,12 +199,11 @@ int main() {
 		} else if (s=="del") {
 			cin>>t;
 			del(t);
-		} else if (s=="cls") {
-			system("cls");
+		
 		} else if (s=="debug") {
 			debug=1;
 		} 
-		} else {
+		 else {
 			int q=poen(s);
 			if (q==1) {
 				cout<<"'"<<s<<"' 不是内部或外部命令，也不是可运行的程序或批处理文件。";
